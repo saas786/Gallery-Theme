@@ -3,13 +3,13 @@
  * The template for displaying gallery content. Used for both single and index/archive/search.
  *
  * @package WordPress
- * @subpackage Evo
- * @since Evo 1.0
+ * @subpackage Gallery
+ * @since Gallery 1.0
  */
 ?>
 
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-    <a href="<?php the_permalink(); ?>"><?php evo_post_thumbnail('grid'); ?></a>
+    <a href="<?php the_permalink(); ?>"><?php gallery_post_thumbnail('grid'); ?></a>
 
     <?php the_content(); ?>
 

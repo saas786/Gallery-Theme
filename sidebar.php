@@ -5,8 +5,8 @@
  * If no active widgets in sidebar, let's hide it completely.
  *
  * @package WordPress
- * @subpackage Evo
- * @since Evo 1.4
+ * @subpackage Gallery
+ * @since Gallery 2.0
  */
 ?>
 

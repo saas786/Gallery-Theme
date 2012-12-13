@@ -7,8 +7,8 @@
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
  * @package WordPress
- * @subpackage Evo
- * @since Evo 1.0
+ * @subpackage Gallery
+ * @since Gallery 1.0
  */
 
 get_header(); ?>
@@ -17,7 +17,7 @@ get_header(); ?>
 
     <div id="content">
 
-	    <h1 class="tag-title"><?php _e("Tag Archive:","evo"); ?> <?php single_tag_title(); ?></h1>
+	    <h1 class="tag-title"><?php _e("Tag Archive:","gallery"); ?> <?php single_tag_title(); ?></h1>
 
       <div id="masonry">
 
@@ -35,7 +35,7 @@ get_header(); ?>
 
     </div><!-- /#content -->
 
-    <?php evo_navigation_below(); ?>
+    <?php gallery_navigation_below(); ?>
 
 	</div><!-- /#container -->
 

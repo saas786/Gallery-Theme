@@ -5,8 +5,8 @@
  * Displays all of the <head> section and everything up till <div id="wrapper">
  *
  * @package WordPress
- * @subpackage Evo
- * @since Evo 1.4
+ * @subpackage Gallery
+ * @since Gallery 2.0
  */
 ?><!DOCTYPE html>
 <!--[if IE 7]>

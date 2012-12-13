@@ -1,24 +1,24 @@
 <?php
 /**
- * Implements an optional custom header for Evo.
+ * Implements an optional custom header for Gallery.
  * See http://codex.wordpress.org/Custom_Headers
  *
  * @package WordPress
- * @subpackage Evo
- * @since Evo 1.4
+ * @subpackage Gallery
+ * @since Gallery 2.0
  */
 
 /**
  * Sets up the WordPress core custom header arguments and settings.
  *
  * @uses add_theme_support() to register support for 3.4 and up.
- * @uses evo_header_style() to style front-end.
- * @uses evo_admin_header_style() to style wp-admin form.
- * @uses evo_admin_header_image() to add custom markup to wp-admin form.
+ * @uses gallery_header_style() to style front-end.
+ * @uses gallery_admin_header_style() to style wp-admin form.
+ * @uses gallery_admin_header_image() to add custom markup to wp-admin form.
  *
- * @since Evo 1.0
+ * @since Gallery 1.0
  */
-function evo_custom_header_setup() {
+function gallery_custom_header_setup() {
 	$args = array(
 		// Text color and image (empty to use none).
 		'default-text-color'     => '444',
@@ -37,23 +37,23 @@ function evo_custom_header_setup() {
 		'random-default'         => false,
 
 		// Callbacks for styling the header and the admin preview.
-		'wp-head-callback'       => 'evo_header_style',
-		'admin-head-callback'    => 'evo_admin_header_style',
-		'admin-preview-callback' => 'evo_admin_header_image',
+		'wp-head-callback'       => 'gallery_header_style',
+		'admin-head-callback'    => 'gallery_admin_header_style',
+		'admin-preview-callback' => 'gallery_admin_header_image',
 	);
 
 	add_theme_support( 'custom-header', $args );
 }
-add_action( 'after_setup_theme', 'evo_custom_header_setup' );
+add_action( 'after_setup_theme', 'gallery_custom_header_setup' );
 
 /**
  * Styles the header text displayed on the blog.
  *
  * get_header_textcolor() options: 444 is default, hide text (returns 'blank'), or any hex value.
  *
- * @since Evo 1.0
+ * @since Gallery 1.0
  */
-function evo_header_style() {
+function gallery_header_style() {
 	$text_color = get_header_textcolor();
 
 	// If no custom options for text are set, let's bail
@@ -89,9 +89,9 @@ function evo_header_style() {
 /**
  * Styles the header image displayed on the Appearance > Header admin panel.
  *
- * @since Evo 1.0
+ * @since Gallery 1.0
  */
-function evo_admin_header_style() {
+function gallery_admin_header_style() {
 ?>
 	<style type="text/css">
 	.appearance_page_custom-header #headimg {
@@ -129,9 +129,9 @@ function evo_admin_header_style() {
  * Outputs markup to be displayed on the Appearance > Header admin panel.
  * This callback overrides the default markup displayed there.
  *
- * @since Evo 1.0
+ * @since Gallery 1.0
  */
-function evo_admin_header_image() {
+function gallery_admin_header_image() {
 	?>
 	<div id="headimg">
 		<?php

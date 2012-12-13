@@ -10,8 +10,8 @@
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
  * @package WordPress
- * @subpackage Evo
- * @since Evo 1.0
+ * @subpackage Gallery
+ * @since Gallery 1.0
  */
 
 get_header(); ?>
@@ -36,7 +36,7 @@ get_header(); ?>
 
     </div><!-- /#content -->
 
-    <?php evo_navigation_below(); ?>
+    <?php gallery_navigation_below(); ?>
 
 	</div><!-- /#container -->
 

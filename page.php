@@ -8,8 +8,8 @@
  * different template.
  *
  * @package WordPress
- * @subpackage Evo
- * @since Evo 1.0
+ * @subpackage Gallery
+ * @since Gallery 1.0
  */
 
 get_header(); ?>

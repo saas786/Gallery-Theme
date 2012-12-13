@@ -6,8 +6,8 @@
  * #wrapper div element.
  *
  * @package WordPress
- * @subpackage Evo
- * @since Evo 1.0
+ * @subpackage Gallery
+ * @since Gallery 1.0
  */
 ?>
 
@@ -23,7 +23,7 @@
           'depth' => 0
         ));
         ?>
-        <span><?php _e('Copyright 2012 Evo Theme. All Rights Reserved.','evo'); ?></span>      
+        <span><?php _e('Copyright 2012 Gallery Theme. All Rights Reserved.','gallery'); ?></span>      
     	</div><!--/#siteinfo-->
     </div><!--/.inner-->
   </div><!--/#footer-->

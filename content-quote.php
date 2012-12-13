@@ -3,8 +3,8 @@
  * The template for displaying posts in the Quote post format
  *
  * @package WordPress
- * @subpackage Evo
- * @since Evo 1.0
+ * @subpackage Gallery
+ * @since Gallery 1.0
  */
 ?>
 
