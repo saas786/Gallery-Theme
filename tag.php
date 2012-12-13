@@ -1,52 +1,42 @@
 <?php
-global $options;
-foreach ($options as $value) {
-    if (get_settings( $value['id'] ) === FALSE) { $$value['id'] = $value['std']; }
-    else { $$value['id'] = get_settings( $value['id'] ); }
-    }
-?>
-<?php get_header() ?>
-	
-	<div id="container">
-		<div id="content">
-		<?php get_sidebar('index-top') ?>
-	<h1 class="page-title"><span><?php _e(thematic_tag_query()); ?></span></h1>
+/**
+ * The template for displaying Tag pages.
+ *
+ * Used to display archive-type pages for posts in a tag.
+ *
+ * Learn more: http://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package WordPress
+ * @subpackage Evo
+ * @since Evo 1.0
+ */
 
-			<div id="nav-above" class="navigation">
-                <?php if(function_exists('wp_pagenavi')) { ?>
-                <?php wp_pagenavi(); ?>
-                <?php } else { ?>  
-				<div class="nav-previous"><?php next_posts_link(__('<span class="meta-nav">&laquo;</span> Older posts', 'thematic')) ?></div>
-				<div class="nav-next"><?php previous_posts_link(__('Newer posts <span class="meta-nav">&raquo;</span>', 'thematic')) ?></div>
-				<?php } ?>
-			</div>
+get_header(); ?>
 
-<?php while ( have_posts() ) : the_post() ?>
+  <div id="container" class="cf">
 
-			<div id="post-<?php the_ID() ?>" class="<?php thematic_post_class() ?>">
-				<div class="entry-content">
-			<?php childtheme_post_header() ?>
-        <a href="<?php echo the_permalink() ?>"><span class="slide-title"><?php echo the_title(); ?></span><img class="thumbnail" src="<?php if(get_post_meta($post->ID, 'thumbnail')){echo get_post_meta($post->ID, 'thumbnail', $single = true);} else{bloginfo('url'); echo "/wp-content/themes/gallery/images/thumbnail-default.jpg";} ?>" width="125" height="125" alt="<?php echo the_title() ?>" /></a>
-				</div>
-			</div><!-- .post -->
+    <div id="content">
 
-<?php comments_template() ?>
+	    <h1 class="tag-title"><?php _e("Tag Archive:","evo"); ?> <?php single_tag_title(); ?></h1>
 
-<?php if ($count==$thm_insert_position) { ?><?php get_sidebar('index-insert') ?><?php } ?>
-<?php $count = $count + 1; ?>
-<?php endwhile ?>
+      <div id="masonry">
 
-			<div id="nav-below" class="navigation">
-                <?php if(function_exists('wp_pagenavi')) { ?>
-                <?php wp_pagenavi(); ?>
-                <?php } else { ?>  
-				<div class="nav-previous"><?php next_posts_link(__('<span class="meta-nav">&laquo;</span> Older posts', 'thematic')) ?></div>
-				<div class="nav-next"><?php previous_posts_link(__('Newer posts <span class="meta-nav">&raquo;</span>', 'thematic')) ?></div>
-				<?php } ?>
-			</div>
+        <?php if( have_posts() ): while ( have_posts() ) : the_post(); ?>
 
-		</div><!-- #content -->
-	</div><!-- #container -->
+        <?php get_template_part( 'content', get_post_format() ); ?>
 
-<?php thematic_sidebar() ?>
+        <?php endwhile; else: ?>
+
+        <?php get_template_part( 'content', 'none' ); ?>
+
+        <?php endif; ?>
+
+      </div><!-- /#masonry -->
+
+    </div><!-- /#content -->
+
+    <?php evo_navigation_below(); ?>
+
+	</div><!-- /#container -->
+
 <?php get_footer() ?>

@@ -1,56 +1,43 @@
 <?php
-global $options;
-foreach ($options as $value) {
-    if (get_settings( $value['id'] ) === FALSE) { $$value['id'] = $value['std']; }
-    else { $$value['id'] = get_settings( $value['id'] ); }
-    }
-?>
-<?php get_header() ?>
+/**
+ * The main template file.
+ *
+ * This is the most generic template file in a WordPress theme
+ * and one of the two required files for a theme (the other being style.css).
+ * It is used to display a page when nothing more specific matches a query.
+ * For example, it puts together the home page when no home.php file exists.
+ *
+ * Learn more: http://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package WordPress
+ * @subpackage Evo
+ * @since Evo 1.0
+ */
 
-	<div id="container">
-		<div id="content">
+get_header(); ?>
 
-			<div id="nav-above" class="navigation">
-                <?php if(function_exists('wp_pagenavi')) { ?>
-                <?php wp_pagenavi(); ?>
-                <?php } else { ?>  
-				<div class="nav-previous"><?php next_posts_link(__('<span class="meta-nav">&laquo;</span> Older posts', 'thematic')) ?></div>
-				<div class="nav-next"><?php previous_posts_link(__('Newer posts <span class="meta-nav">&raquo;</span>', 'thematic')) ?></div>
-				<?php } ?>
-			</div>
-			
-<?php get_sidebar('index-top') ?>
+  <div id="container" class="cf">
 
-<?php /* Count the number of posts so we can insert a widgetized area */ $count = 1 ?>
-<?php while ( have_posts() ) : the_post() ?>
+    <div id="content">
 
-			<div id="post-<?php the_ID() ?>" class="<?php thematic_post_class() ?>">
-				<div class="entry-content">
-					<?php childtheme_post_header() ?>
-                    <a href="<?php echo the_permalink() ?>"><span class="slide-title"><?php echo the_title(); ?></span>
-                    <img class="thumbnail" src="<?php if(get_post_meta($post->ID, 'thumbnail', $single = true)){echo get_post_meta($post->ID, 'thumbnail', $single = true);} else{bloginfo('url'); echo "/wp-content/themes/gallery/images/thumbnail-default.jpg";} ?>" width="125" height="125" alt="<?php echo the_title() ?>" /></a>
-				</div>
-			</div><!-- .post -->
+      <div id="masonry">
 
-<?php comments_template() ?>
+  			<?php if( have_posts() ): while ( have_posts() ) : the_post(); ?>
 
-<?php if ($count==$thm_insert_position) { ?><?php get_sidebar('index-insert') ?><?php } ?>
-<?php $count = $count + 1; ?>
-<?php endwhile ?>
+        <?php get_template_part( 'content', get_post_format() ); ?>
 
-<?php get_sidebar('index-bottom') ?>
+        <?php endwhile; else: ?>
 
-			<div id="nav-below" class="navigation">
-                <?php if(function_exists('wp_pagenavi')) { ?>
-                <?php wp_pagenavi(); ?>
-                <?php } else { ?>  
-				<div class="nav-previous"><?php next_posts_link(__('<span class="meta-nav">&laquo;</span> Older posts', 'thematic')) ?></div>
-				<div class="nav-next"><?php previous_posts_link(__('Newer posts <span class="meta-nav">&raquo;</span>', 'thematic')) ?></div>
-				<?php } ?>
-			</div>
+        <?php get_template_part( 'content', 'none' ); ?>
 
-		</div><!-- #content -->
-	</div><!-- #container -->
+        <?php endif; ?>
 
-<?php thematic_sidebar() ?>
+      </div><!-- /#masonry -->
+
+    </div><!-- /#content -->
+
+    <?php evo_navigation_below(); ?>
+
+	</div><!-- /#container -->
+
 <?php get_footer() ?>
