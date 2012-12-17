@@ -66,8 +66,8 @@ function gallery_setup() {
 
   add_image_size('full-width',660,99999,false);
   add_image_size('full-width-2x',1320,99999,false);
-  add_image_size('grid',232,232,false);
-  add_image_size('grid-2x',464,464,false);
+  add_image_size('grid',232,9999,false);
+  add_image_size('grid-2x',464,9999,false);
 
 	/*
 	 * This theme supports custom background color and image, and here
