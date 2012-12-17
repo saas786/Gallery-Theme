@@ -58,7 +58,7 @@ function gallery_setup() {
 	add_theme_support( 'automatic-feed-links' );
 
 	// This theme supports a variety of post formats.
-	add_theme_support( 'post-formats', array( 'aside', 'image', 'link', 'quote', 'status', 'gallery' ) );
+	add_theme_support( 'post-formats', array( 'aside', 'video', 'image', 'link', 'quote', 'status', 'gallery' ) );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menu( 'primary_nav', __( 'Primary Menu', 'gallery' ) );
